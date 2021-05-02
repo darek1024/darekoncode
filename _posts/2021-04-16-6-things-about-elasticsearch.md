@@ -1,7 +1,6 @@
 ---
 title: '6 Not So Obvious Things About Elasticsearch'
 date: 2021-04-16 12:30:00
-excerpt: Elasticsearch is a widely adopted search engine. It is used by big names like Netflix, Microsoft, eBay, Facebook and others. It is easy to start working with, but hard to master in the long run. In this article I share six not-so-obvious things about Elasticsearch worth knowing before using it in your systems.
 ---
 
 Elasticsearch is a widely adopted search engine. It is used by big names like Netflix, Microsoft, eBay, Facebook and others. It is easy to start working with, but hard to master in the long run. In this article I share six not-so-obvious things about Elasticsearch worth knowing before using it in your systems.
