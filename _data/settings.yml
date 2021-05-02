@@ -1,7 +1,7 @@
 basic_settings:
   site_title: Darek On Code
   site_tagline: Java, Spring, Microservices, Elasticsearch
-  favicon_image: /images/favicon.png
+  favicon_image: /images/keyboard.png
 
 header_settings:
   avatar_image: /images/avatar.jpg
