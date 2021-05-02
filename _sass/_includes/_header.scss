@@ -25,12 +25,12 @@
 	display: block;
 	margin: 0 auto 20px;
 	border-radius: 100%;
-	width: 100px;
+	width: 70px;
 	overflow: hidden;
 	margin-bottom: 20px;
 
 	@include mq(tabletp) {
-		width: 150px;
+		width: 130px;
 		margin-bottom: 25px;
 	}
 

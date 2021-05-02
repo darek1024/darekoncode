@@ -1,6 +1,6 @@
 basic_settings:
   site_title: Darek On Code
-  site_tagline: Tips on programming in Java, Spring, Microservices, Elasticsearch
+  site_tagline: Java, Spring, Microservices, Elasticsearch
   favicon_image: /images/favicon.png
 
 header_settings:
@@ -76,8 +76,8 @@ font_settings:
   bold_weight: 600
   site_title:
     small_size: 27
-    medium_size: 32
-    large_size: 40
+    medium_size: 27
+    large_size: 27
     weight: 600
     letter_spacing: 0
   site_tagline:
@@ -95,15 +95,15 @@ font_settings:
     letter_spacing: 0
   h1:
     small_size: 27
-    medium_size: 38
-    large_size: 50
+    medium_size: 27
+    large_size: 27
     weight: 600
     letter_spacing: -0.02
     line_height: 1.2
   h2:
     small_size: 27
-    medium_size: 38
-    large_size: 50
+    medium_size: 27
+    large_size: 27
     weight: 600
     letter_spacing: -0.02
     line_height: 1.2
@@ -143,9 +143,9 @@ font_settings:
     letter_spacing: 0
     line_height: 1.6
   blockquote:
-    small_size: 25
-    medium_size: 35
-    large_size: 45
+    small_size: 22
+    medium_size: 22
+    large_size: 22
     weight: 300
     letter_spacing: -0.02
     line_height: 1.6

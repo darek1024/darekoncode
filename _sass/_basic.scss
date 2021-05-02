@@ -165,6 +165,9 @@ ul, ol {
 }
 
 blockquote {
+	border-left: 3px solid grey;
+	padding-left: 20px;
+	font-style: italic;
 	margin-top: 15px;
 	font-family: $title-font;
 	font-size: $blockquote-small;
