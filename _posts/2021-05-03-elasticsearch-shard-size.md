@@ -3,35 +3,39 @@ title: 'Elasticsearch Perfect Shard Size'
 date: 2021-05-03 07:30:00
 ---
 
-One of the most common question when working with Elasticsearch is how to choose the correct shards number of the index.
+Documents in Elaticsearch are logically grouped into a data structure called index. One index can contain a massive number of documents.
 
-The question is crucial because it is not possible to adjust that number later. It can be set only at the beginning of the index creation.
+You can think of an index like a database table and a document like a database row.
 
-So one must choose the number of shards carefully.
+But, luckily Elasticsearch is built around distributed concepts, so a single index (table) can be split into multiple physical locations by storing documents in multiple shards. One index is built of multiple shards which contain documents. All shards together make up a single index.
 
-And what is essentially the ideal number of shards depends on the perfect size of a single shard.
+Now a substantial problem arises. You can choose the number of shards only once at the beginning of index creation. Depending on the number of shards, Elasticsearch knows where to assign specific documents on writes and find them on reads.
 
-You can have multiple options.
+So if there are three shards, the location is calculated by hashing function and modulo of three. If you were allowed to change the shards number later, the modulo function of four would produce incorrect results.
 
-* Option 1 — many tiny shards, so they can easily be spread out on nodes of your cluster
+## So, how many shards should the index have?
 
-* Option 2 — as largest shards as possible, so all the data fit into one node, making calculations faster.
+Quite often, techs working with Elasticsearch ponder how many shards a single index should have. Two, three, four, or... a hundred?
 
-## Perfect shard should size between 5-40 GB.
+And the answer is: it is a wrong question :)
 
-The actual number should be picked depending on benchmarks, but it probably sits between 5 and 40 GB.
+## The correct question: how large should a single shard be?
 
-The answer comes from the Elastic official trainers from the official Elastic training program.
+So the answer is: **a single shard should be of size 5 to 40 GB.**
 
-So, what to take from this entry?
+Depending on the number of documents you plan to store in your index and their size, you can plan the number of shards for the index.
 
-* if your shards are sized for 500 MB, and you have many of them, you can safely merge them to bigger ones to fit between 5 to 40 GB
-* if your shards are bigger than 40 GB, it may cause performance problems and slows downs, and in that case, you'd better reindex data to smaller ones.
+**If you intend to have 1 GB of data, it's enough to have just one shard :)**
 
-Remember that even if you don't know the expected size of data in the index, you can always reindex the data to the new one. So you can start small - for instance, 2-5 shards at the beginning, and then adjust that accordingly by reindexing data once again.
+**But if you have 100 GB of data, it's better to have 3-20 shards.**
 
-It can cause trouble to maintain writing & reading from two indexes simultaneously, but this problem we will cover in another blog post.
+The specific number depends on your performance benchmarks.
 
-## Wrap Up
+The more shards, the better it is to scale them out on multiple nodes. The less, the latency on communication is lower (calculations are performed locally).
 
-When it comes to adjusting the size of a shard in Elasticsearch index, one must act carefully. Choosing too many tiny shards may cause too much latency in communication and not benefit better scalability at the beginning. It's ok to plan shards number for 5 to 40 GB capacity, and if need be, adjust the size later by reindexing the data again.
+## What if I'm not sure how much data I am going to have?
+
+The answer is: start small. If the need for more shards arises, you can always reindex the data on the index with a more precise number of shards later on.
+
+## Wrap Up 🙌
+Choosing the correct number of shards for an Elasticsearch index is one of the most important decisions to make at the beginning. Make sure you use the correct numbers, so you gain the best performance experience for your cluster.
