@@ -155,7 +155,7 @@ font_settings:
 
 advanced_settings:
   ajax_loading: true
-  analytics_code: ""
+  analytics_code: '<script async defer data-domain="darekmydlarz.com" src="https://plausible.io/js/plausible.js"></script>'
   custom_styles: ""
   header_js: ""
   footer_js: ""
